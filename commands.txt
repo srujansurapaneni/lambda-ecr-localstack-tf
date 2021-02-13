@@ -1,0 +1,9 @@
+1. DEBUG=1 LOCALSTACK_API_KEY={your-api-key-goes-here} docker-compose up
+2. awslocal ecr create-repository --repository-name lambda-container --image-scanning-configuration scanOnPush=true
+3. docker build -t lambda-container .
+4. docker tag lambda-container:latest localhost:4510/lambda-container
+5. awslocal ecr get-login-password
+6. docker login --username AWS --password 012345678910-auth-token localhost:4510/lambda-container
+7. docker push localhost:4510/lambda-container
+8. terraform apply
+9. awslocal lambda invoke --function-name lambda-container file.txt

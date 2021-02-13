@@ -1,0 +1,8 @@
+{
+    "name": "lambda-container",
+    "version": "1.0.0",
+    "license": "MIT",
+    "dependencies": {
+        "getstream": "^7.0.0"
+    }
+}
